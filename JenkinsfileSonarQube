@@ -1,0 +1,11 @@
+pipeline {
+	agent any
+	stages {
+		stage('Code Quality Check via SonarQube') {
+			steps {
+				sh 'cd /var/jenkins_home/3X03 && sudo git pull'
+				sh 'sudo /var/jenkins_home/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner'
+			}
+		}
+	}	
+}
